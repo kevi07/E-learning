@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/commonstyle.css">
+    <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="container">
+        <% 
+        const displayedCourses = new Set(); 
+        %>
+        
+        <% if (courses.length > 0) { %>
+            <% courses.forEach(course => { %>
+                <% const courseKey = `${course.name}-${course.domain}`; %>
+                <% if (!displayedCourses.has(courseKey)) { %>
+                    <% displayedCourses.add(courseKey); %>
+                    <div class="container">
+                        <div class="wrapper">
+                            <a class="cta" href="/courses/<%= course.name %>">
+                                <span style="width: 400px;"><%= course.name %></span>
+                                <span>
+                                    <svg width="36px" height="23px" viewBox="0 0 66 43" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="arrow" fill="none" fill-rule="evenodd">
+                                            <path class="one" d="M40.15,3.89 L43.97,0.13 C44.17,-0.05 44.48,-0.05 44.67,0.13 L65.69,20.78 C66.08,21.17 66.09,21.81 65.70,22.19 L44.67,42.86 C44.48,43.05 44.17,43.05 43.97,42.86 L40.15,39.11 C39.96,38.91 39.95,38.60 40.15,38.39 L56.99,21.85 C57.19,21.66 57.19,21.34 57.00,21.14 L40.15,4.61 C39.96,4.41 39.95,4.09 40.15,3.89 Z" fill="#FFFFFF"></path>
+                                        </g>
+                                    </svg>
+                                </span>
+                            </a>
+
+                        </div><br>  
+          
+                <% } %>
+            <% }) %>
+        <% } else { %>
+            <p>No courses found.</p>
+        <% } %>
+    </div>
+  </div>
+</body>
+</html>
